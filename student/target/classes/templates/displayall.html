@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+table {
+  
+  padding: 49px;
+}
+    </style>
+</head>
+<body>
+    <table border="2px" th:each="student :${students}" >
+        <tr><td th:text="${student.id}"></td> <td th:text =${student.name}></td>
+        <td th:text="${student.age}"></td> <td th:text="${student.address}"></td>
+        <td>  <a href="#" th:href="@{/FetchById/{id}(id=${student.id})}">Display</a></td>
+        <td> <a href="#"  th:href="@{/DeleteById/{id}(id=${student.id})}" >Delete</a></td>
+
+        <td> <a th:href="@{/UpdateById/{id}(id=${student.id})}">Edit</a></td>  
+    </tr>
+  
+      </table>
+</body>
+</html>
